@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.71'
+}
+
+group 'cc.hyperium'
+version '0.1'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile 'com.github.FalseHonesty:kryonet:2.22'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
