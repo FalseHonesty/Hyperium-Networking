@@ -1,14 +1,14 @@
 package cc.hyperium.network.packets
 
-enum class Packets(val ID: Int) {
-    HEARTBEAT(0);
+enum class Packets(val ID: Int, val clazz: Class<*>) {
+    HEARTBEAT(0, Heartbeat::class.java);
 
-    fun instance(): IPacket {
+    fun newInstance(): IPacket {
         return create(this)
     }
 
-    fun <T : IPacket> instanceAs(): T {
-        return instance() as T
+    fun <T : IPacket> newInstanceAs(): T {
+        return newInstance() as T
     }
 
     companion object {
@@ -16,6 +16,12 @@ enum class Packets(val ID: Int) {
             return when (type) {
                 HEARTBEAT -> Heartbeat(System.currentTimeMillis())
                 else -> TODO("The Packet Type $type cannot be automatically instantiated!")
+            }
+        }
+
+        fun forEach(function: (Class<*>) -> Unit) {
+            Packets.values().forEach {
+                function(it.clazz)
             }
         }
     }
