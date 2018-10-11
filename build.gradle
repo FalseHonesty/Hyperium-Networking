@@ -14,7 +14,6 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    compile 'com.github.FalseHonesty:kryonet:2.22'
 }
 
 compileKotlin {
