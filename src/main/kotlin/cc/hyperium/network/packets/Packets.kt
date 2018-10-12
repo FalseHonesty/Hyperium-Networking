@@ -1,7 +1,8 @@
 package cc.hyperium.network.packets
 
 enum class Packets(val ID: Int, val clazz: Class<*>) {
-    HEARTBEAT(0, Heartbeat::class.java);
+    HEARTBEAT(0, Heartbeat::class.java),
+    CROSS_CLIENT_DATA(1, CrossClientData::class.java);
 
     fun newInstance(): IPacket {
         return create(this)
