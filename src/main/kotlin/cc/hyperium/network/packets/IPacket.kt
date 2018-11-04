@@ -1,3 +1,5 @@
 package cc.hyperium.network.packets
 
-abstract class IPacket(val ID: Int)
+import java.util.*
+
+abstract class IPacket(val type: PacketType, val ID: UUID = UUID.randomUUID())
